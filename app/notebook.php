@@ -8,4 +8,8 @@ class notebook extends Model
 {
     //to prevent MassAssingment error
     protected $fillable = ['title', 'description'];
+
+    public function notes(){
+      return $this->hasMany(Note::class);
+    }
 }

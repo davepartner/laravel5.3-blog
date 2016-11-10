@@ -29,3 +29,7 @@ Route::post('/createNote', 'NotesController@postCreateNote');
 Route::get('/editNote', 'NotesController@getEditNote'); //edit
 Route::post('/editNote', 'NotebooksController@postEditNote');
 Route::delete('/deleteNote', 'NotesController@deleteNote'); //delete
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
