@@ -2,11 +2,11 @@
 @section('content')
   <div class="jumbotron">
           <!--<h1>Series By Dave</h1>-->
-          <p class="lead">{{count($notebooks)}}, published so far by this account.</p>
+          <p class="lead">{{count($notebooks)}}, published so far by {{ Auth::user()->name }}.</p>
 
         <div class="row ">
           <div class="col-lg-6 ">
-            <form  method="POST" action="createNotebook">
+            <form  method="POST" action="notebooks/create">
                  {{csrf_field()}}
             <div class="input-group">
 

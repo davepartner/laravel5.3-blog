@@ -31,4 +31,6 @@ class User extends Authenticatable
     public function notebooks(){
       return $this->hasMany(Notebook::class);
     }
+
+    
 }

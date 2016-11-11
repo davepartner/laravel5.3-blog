@@ -33,15 +33,86 @@
 
   <body>
 
+
+    <nav class="navbar navbar-default blog-nav">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Lara Note</a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li> <a class="blog-nav-item active" href="/">Home</a> </li>
+            <li> <a class="blog-nav-item" href="/notes">Notes</a> </li>
+            <li> <a class="blog-nav-item" href="/notebooks">Notebooks</a> </li>
+            <li> <a class="blog-nav-item" href="/people">People</a> </li>
+
+            @if (Auth::guest())
+                  <li> <a href="{{ url('/login') }}" class="blog-nav-item">Login</a> </li>
+                  <li> <a href="{{ url('/register') }}" class="blog-nav-item">Register</a> </li>
+
+            @endif
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+
+                @if(Auth::guest())
+                  <li><a href="/login">Login/a></li>
+
+                @else
+
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
+                  <li><a href="users/view/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a></li>
+                  <li>
+                    <a href="{{ url('/logout') }}" class="blog-nav-item"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                  </li>
+                @endif
+
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+
     <div class="blog-masthead">
       <div class="container">
-        <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Home</a>
-          <a class="blog-nav-item" href="/notes">Notes</a>
-          <a class="blog-nav-item" href="/notebooks">Notebooks</a>
-          <a class="blog-nav-item" href="/people">People</a>
-          <a class="blog-nav-item" href="/login">Login</a>
-        </nav>
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
 

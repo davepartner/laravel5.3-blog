@@ -12,4 +12,8 @@ class notebook extends Model
     public function notes(){
       return $this->hasMany(Note::class);
     }
+
+    public function users(){
+      return belongsTo(User::class);
+    }
 }

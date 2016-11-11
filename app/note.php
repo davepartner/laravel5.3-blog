@@ -11,6 +11,6 @@ class note extends Model
     protected $fillable = ['title', 'description'];
 
     public function notebooks(){
-      return $belongsTo(Notebook::class)
+      return $belongsTo(Notebook::class);
     }
 }
